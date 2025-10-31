@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugla Transport</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <nav>
+        <li id="logo"><a href="../index.html"><img
+                    src="https://img.icons8.com/?size=100&id=ww29IurM7iDa&format=png&color=000000" alt="logo"></a></li>
+        <ul>
+            <li><a href="customer.html">Home</a></li>
+            <li><a href="create_shipment.html">Create Shipment</a></li>
+            <li><a href="track_shipment.html">Track Shipment</a></li>
+            <li><a href="../login.html">Back</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <form id="track-form">
+            <h1>Track Your Shipment</h1>
+            <p>Enter your Order ID below to see the current status of your shipment.</p>
+            <div class="form-group">
+                <label for="order-id">Order ID:</label>
+                <input type="text" id="order-id" name="order_id" placeholder="e.g., 1729..." required>
+                <button type="submit" class="button">Track Shipment</button>
+            </div>
+        </form>
+
+        <div id="tracking-result" style="display:none;">
+            <h2>Shipment Status</h2>
+            <p><strong>Order ID:</strong> <span id="result-order-id">...</span></p>
+            <p><strong>Customer:</strong> <span id="result-customer-name">...</span></p>
+            <p><strong>Destination:</strong> <span id="result-destination">...</span></p>
+            <p><strong>Status:</strong> <span id="result-status">...</span></p>
+            <p><strong>Total Cost:</strong> <span id="result-cost">...</span></p>
+            <hr>
+            <h3>Shipment Details</h3>
+            <p><strong>Product:</strong> <span id="result-product-name">...</span> (<span
+                    id="result-product-category">...</span>)</p>
+            <p><strong>Weight:</strong> <span id="result-product-weight">...</span> kg</p>
+            <p><strong>Route:</strong> <span id="result-road-type">...</span></p>
+            <p><strong>Vehicle:</strong> <span id="result-vehicle">...</span></p>
+            <p><strong>Container:</strong> <span id="result-container-type">...</span></p>
+            <p><strong>Notes:</strong> <span id="result-additional-info">...</span></p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Perferendis?</a></li>
+                <li><a href="#">Voluptate!</a></li>
+                <li><a href="#">Quidem?</a></li>
+                <li><a href="#">Culpa!</a></li>
+                <li><a href="#">Officia.</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Nesciunt!</a></li>
+                <li><a href="#">Accusamus.</a></li>
+                <li><a href="#">Omnis!</a></li>
+                <li><a href="#">Minima.</a></li>
+                <li><a href="#">Maxime?</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Omnis.</a></li>
+                <li><a href="#">Aliquam?</a></li>
+                <li><a href="#">Repudiandae!</a></li>
+                <li><a href="#">Ut.</a></li>
+                <li><a href="#">Ducimus?</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script src="../js/track_shipment.js"></script>
+
+</html>

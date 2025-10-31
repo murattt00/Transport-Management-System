@@ -1,0 +1,283 @@
+[
+  {
+    "destination_city": "Istanbul, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 780
+      },
+      {
+        "type": "sea",
+        "distance_km": 840
+      }
+    ]
+  },
+  {
+    "destination_city": "Ankara, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 580
+      }
+    ]
+  },
+  {
+    "destination_city": "Izmir, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 210
+      },
+      {
+        "type": "sea",
+        "distance_km": 245
+      }
+    ]
+  },
+  {
+    "destination_city": "Antalya, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 315
+      },
+      {
+        "type": "sea",
+        "distance_km": 340
+      }
+    ]
+  },
+  {
+    "destination_city": "Adana, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 830
+      },
+      {
+        "type": "sea",
+        "distance_km": 910
+      }
+    ]
+  },
+  {
+    "destination_city": "Bursa, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 550
+      },
+      {
+        "type": "sea",
+        "distance_km": 610
+      }
+    ]
+  },
+  {
+    "destination_city": "Trabzon, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 1350
+      },
+      {
+        "type": "sea",
+        "distance_km": 1480
+      }
+    ]
+  },
+  {
+    "destination_city": "Gaziantep, Turkey",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 1050
+      }
+    ]
+  },
+  {
+    "destination_city": "Berlin, Germany",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 2950
+      },
+      {
+        "type": "sea",
+        "distance_km": 4600
+      }
+    ]
+  },
+  {
+    "destination_city": "Rome, Italy",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 2400
+      },
+      {
+        "type": "sea",
+        "distance_km": 1850
+      }
+    ]
+  },
+  {
+    "destination_city": "Paris, France",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 3450
+      },
+      {
+        "type": "sea",
+        "distance_km": 4900
+      }
+    ]
+  },
+  {
+    "destination_city": "London, UK",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 3800
+      },
+      {
+        "type": "sea",
+        "distance_km": 5750
+      }
+    ]
+  },
+  {
+    "destination_city": "Moscow, Russia",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 3300
+      },
+      {
+        "type": "sea",
+        "distance_km": 3100
+      }
+    ]
+  },
+  {
+    "destination_city": "Amsterdam, Netherlands",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 3500
+      },
+      {
+        "type": "sea",
+        "distance_km": 5450
+      }
+    ]
+  },
+  {
+    "destination_city": "Barcelona, Spain",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 3350
+      },
+      {
+        "type": "sea",
+        "distance_km": 2900
+      }
+    ]
+  },
+  {
+    "destination_city": "Tehran, Iran",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 2650
+      }
+    ]
+  },
+  {
+    "destination_city": "Cairo, Egypt",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 1100
+      }
+    ]
+  },
+  {
+    "destination_city": "Dubai, UAE",
+    "routes": [
+      {
+        "type": "land",
+        "distance_km": 4100
+      },
+      {
+        "type": "sea",
+        "distance_km": 7450
+      }
+    ]
+  },
+  {
+    "destination_city": "Mumbai, India",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 8400
+      }
+    ]
+  },
+  {
+    "destination_city": "New York, USA",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 9600
+      }
+    ]
+  },
+  {
+    "destination_city": "Toronto, Canada",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 10200
+      }
+    ]
+  },
+  {
+    "destination_city": "Shanghai, China",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 19500
+      }
+    ]
+  },
+  {
+    "destination_city": "Tokyo, Japan",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 20900
+      }
+    ]
+  },
+  {
+    "destination_city": "São Paulo, Brazil",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 11800
+      }
+    ]
+  },
+  {
+    "destination_city": "Sydney, Australia",
+    "routes": [
+      {
+        "type": "sea",
+        "distance_km": 22400
+      }
+    ]
+  }
+]

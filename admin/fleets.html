@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugla Transport</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <nav>
+        <li id="logo"><a href="../index.html"><img
+                    src="https://img.icons8.com/?size=100&id=ww29IurM7iDa&format=png&color=000000" alt="logo"></a></li>
+        <ul>
+            <li><a href="admin.html">Home</a></li>
+            <li><a href="fleets.html">Manage</a></li>
+            <li><a href="../login.html">Back</a></li>
+        </ul>
+    </nav>
+
+    <div id="welcome-message">
+        <h1>Welcome!</h1>
+        <p>Manage your account and all your shipments from this portal.</p>
+    </div>
+
+    <hr>
+    <navbar id="subbar">
+        <ul>
+            <li style="background-color: black;"><a style="color: white;" href="fleets.html">Fleets</a></li>
+            <li><a href="inventory.html">Inventory</a></li>
+            <li><a href="financial.html">Financial</a></li>
+            <li><a href="reports.html">Reports</a></li>
+        </ul>
+    </navbar>
+    <main id="manange-main">
+        <div id="fleets-overview">
+            <h2>Fleets Overview</h2>
+            <p>Manage and monitor your fleet vehicles here.</p>
+            <table id="fleet-list">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Capacity (kg)</th>
+                        <th>Fuel Cost/km</th>
+                        <th>Crew/Driver Cost</th>
+                        <th>Maintenance Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fleet data will be populated here by fleets.js -->
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Perferendis?</a></li>
+                <li><a href="#">Voluptate!</a></li>
+                <li><a href="#">Quidem?</a></li>
+                <li><a href="#">Culpa!</a></li>
+                <li><a href="#">Officia.</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Nesciunt!</a></li>
+                <li><a href="#">Accusamus.</a></li>
+                <li><a href="#">Omnis!</a></li>
+                <li><a href="#">Minima.</a></li>
+                <li><a href="#">Maxime?</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Omnis.</a></li>
+                <li><a href="#">Aliquam?</a></li>
+                <li><a href="#">Repudiandae!</a></li>
+                <li><a href="#">Ut.</a></li>
+                <li><a href="#">Ducimus?</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script src="../js/fleets.js"></script>
+
+</html>

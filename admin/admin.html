@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugla Transport</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <nav>
+        <li id="logo"><a href="../index.html"><img
+                    src="https://img.icons8.com/?size=100&id=ww29IurM7iDa&format=png&color=000000" alt="logo"></a></li>
+        <ul>
+            <li><a href="admin.html">Home</a></li>
+            <li><a href="fleets.html">Manage</a></li>
+            <li><a href="../login.html">Back</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="welcome-message">
+            <h1>Welcome!</h1>
+            <p>Manage your account and all your shipments from this portal.</p>
+        </div>
+        <hr>
+        <div id="basic-infos">
+            <div class="basic-info">
+                <img src="https://img.icons8.com/?size=100&id=11883&format=png&color=000000" alt="">
+                <h3>Total Shipments:</h3>
+                <span id="total-shipments">0</span>
+            </div>
+            <div class="basic-info">
+                <img src="https://img.icons8.com/?size=100&id=36950&format=png&color=000000" alt="">
+                <h3>Total Income:</h3>
+                <span id="income">0</span>
+            </div>
+            <div class="basic-info">
+                <img src="https://img.icons8.com/?size=100&id=7YsDTTHHs9zs&format=png&color=000000" alt="">
+                <h3>Earning:</h3>
+                <span id="earning">0</span>
+            </div>
+        </div>
+
+        <div id="dasboard">
+            <h2>Recent Shipments</h2>
+            <p>An overview of all shipments currently in the system.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Shipment ID</th>
+                        <th>Customer</th>
+                        <th>Destination</th>
+                        <th>Amount</th>
+                        <th>Container Type</th>
+                        <th>Vehicle</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="dashboard-body">
+                    <!-- Dashboard data will be populated here by admin.js -->
+                </tbody>
+            </table>
+            <div id="container_optimization">
+                <h2>Container Optimization</h2>
+                <p>Group shipments to the same destination into fewer containers to increase efficiency.</p>
+                <button id="optimize-btn" class="button">Optimize Containers</button>
+                <div id="optimization-results">
+                    <!-- Optimization results will be shown here -->
+                </div>
+            </div>
+            <div id="vehicles">
+                <h2>Vehicle Occupancy & Dispatch</h2>
+                <p>Monitor vehicle loads and dispatch them when ready.</p>
+                <div id="vehicle-list">
+                    <!-- Vehicle occupancy table will be generated here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Perferendis?</a></li>
+                <li><a href="#">Voluptate!</a></li>
+                <li><a href="#">Quidem?</a></li>
+                <li><a href="#">Culpa!</a></li>
+                <li><a href="#">Officia.</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Nesciunt!</a></li>
+                <li><a href="#">Accusamus.</a></li>
+                <li><a href="#">Omnis!</a></li>
+                <li><a href="#">Minima.</a></li>
+                <li><a href="#">Maxime?</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Omnis.</a></li>
+                <li><a href="#">Aliquam?</a></li>
+                <li><a href="#">Repudiandae!</a></li>
+                <li><a href="#">Ut.</a></li>
+                <li><a href="#">Ducimus?</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script src="../js/admin.js"></script>
+
+</html>

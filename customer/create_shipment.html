@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugla Transport</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+
+<body>
+    <nav>
+        <li id="logo"><a href="../index.html"><img
+                    src="https://img.icons8.com/?size=100&id=ww29IurM7iDa&format=png&color=000000" alt="logo"></a></li>
+        <ul>
+            <li><a href="customer.html">Home</a></li>
+            <li><a href="create_shipment.html">Create Shipment</a></li>
+            <li><a href="track_shipment.html">Track Shipment</a></li>
+            <li><a href="../login.html">Back</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div id="form-intro">
+            <h1>Create a New Shipment</h1>
+            <p>
+                Fill out the form below to get an instant price quote based on your
+                destination and container needs.
+            </p>
+        </div>
+
+        <form id="shipment-form">
+
+            <div class="form-group">
+
+                <h2>1. Product Details</h2>
+
+                <label for="product-name">Product Name:</label>
+                <input type="text" id="product-name" name="product_name" placeholder="e.g., Fresh Blueberries" required>
+
+                <label for="product-category">Product Category:</label>
+                <select id="product-category" name="product_category" required>
+                    <option value="" disabled selected>Select a category...</option>
+                    <option value="fresh_food">Fresh Food (Fruits, Vegetables)</option>
+                    <option value="cold_chain">Cold Chain (Meat, Dairy, Frozen Goods)</option>
+                    <option value="textile">Textiles & Apparel</option>
+                    <option value="general_cargo">General Cargo (Durable Goods)</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="product-weight">Weight (kg):</label>
+                <input type="number" id="product-weight" name="product_weight" min="1" placeholder="e.g., 500" required>
+            </div>
+
+
+
+            <div class="form-group">
+
+                <h2>2. Shipment Details</h2>
+
+                <label for="destination">Destination (City, Country):</label>
+                <select id="destination" name="destination" required>
+                    <option value="" disabled selected>Select a destination...</option>
+                </select>
+
+                <label for="road">Road:</label>
+                <select id="road" name="road" required>
+                    <option value="" disabled selected>Select a road type...</option>
+                </select>
+
+                <label for="vehicle">Vehicle:</label>
+                <select id="vehicle" name="vehicle" required>
+                    <option value="" disabled selected>Select a vehicle...</option>
+                </select>
+
+                <label for="container-type">Container Type:</label>
+                <select id="container-type" name="container_type" required>
+                    <option value="" disabled selected>Select a container size...</option>
+                    <option value="small">Small (Up to 2,000 kg - ₺5/km)</option>
+                    <option value="medium">Medium (Up to 5,000 kg - ₺8/km)</option>
+                    <option value="large">Large (Up to 10,000 kg - ₺12/km)</option>
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+
+                <h2>3. Additional Details</h2>
+
+                <label for="customer-name">Customer Name Surname:</label>
+                <input type="text" id="customer-name" name="customer_name" placeholder="e.g., John Doe" required>
+
+                <label for="additional-info">Additional Information (Optional):</label>
+                <textarea id="additional-info" name="additional_info"></textarea>
+
+                <button type="submit" class="button">
+                    Calculate Price & Get Summary
+                </button>
+            </div>
+
+        </form>
+
+        <div id="result-summary" style="display:none;">
+            <h2>Order Summary</h2>
+            <p><strong>Total Price:</strong> <span id="calculated-price">...</span></p>
+            <p><strong>Route:</strong> From Muğla to <span id="summary-destination">...</span></p>
+
+            <button type="button" id="confirm-shipment" class="button">
+                Confirm Shipment
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Perferendis?</a></li>
+                <li><a href="#">Voluptate!</a></li>
+                <li><a href="#">Quidem?</a></li>
+                <li><a href="#">Culpa!</a></li>
+                <li><a href="#">Officia.</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Nesciunt!</a></li>
+                <li><a href="#">Accusamus.</a></li>
+                <li><a href="#">Omnis!</a></li>
+                <li><a href="#">Minima.</a></li>
+                <li><a href="#">Maxime?</a></li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><a href="#">Lorem.</a></li>
+                <li><a href="#">Omnis.</a></li>
+                <li><a href="#">Aliquam?</a></li>
+                <li><a href="#">Repudiandae!</a></li>
+                <li><a href="#">Ut.</a></li>
+                <li><a href="#">Ducimus?</a></li>
+            </ul>
+        </div>
+    </footer>
+</body>
+<script src="../js/create_shipment.js"></script>

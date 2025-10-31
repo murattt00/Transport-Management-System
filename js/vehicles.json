@@ -1,0 +1,65 @@
+[
+  {
+    "type": "Ship",
+    "name": "BlueSea",
+    "capacity_kg": 100000,
+    "fuel_cost_per_km": 40,
+    "crew_driver_cost": 18000,
+    "maintenance_cost": 9000,
+    "total_expense": 70000
+  },
+  {
+    "type": "Ship",
+    "name": "OceanStar",
+    "capacity_kg": 120000,
+    "fuel_cost_per_km": 50,
+    "crew_driver_cost": 23000,
+    "maintenance_cost": 10000,
+    "total_expense": 87000
+  },
+  {
+    "type": "Ship",
+    "name": "AegeanWind",
+    "capacity_kg": 90000,
+    "fuel_cost_per_km": 35,
+    "crew_driver_cost": 16000,
+    "maintenance_cost": 6000,
+    "total_expense": 61000
+  },
+  {
+    "type": "Truck",
+    "name": "RoadKing",
+    "capacity_kg": 10000,
+    "fuel_cost_per_km": 8,
+    "crew_driver_cost": 2000,
+    "maintenance_cost": 1000,
+    "total_expense": 8000
+  },
+  {
+    "type": "Truck",
+    "name": "FastMove",
+    "capacity_kg": 12000,
+    "fuel_cost_per_km": 9,
+    "crew_driver_cost": 2500,
+    "maintenance_cost": 1500,
+    "total_expense": 9000
+  },
+  {
+    "type": "Truck",
+    "name": "CargoPro",
+    "capacity_kg": 9000,
+    "fuel_cost_per_km": 7,
+    "crew_driver_cost": 1800,
+    "maintenance_cost": 1000,
+    "total_expense": 7800
+  },
+  {
+    "type": "Truck",
+    "name": "HeavyLoad",
+    "capacity_kg": 15000,
+    "fuel_cost_per_km": 10,
+    "crew_driver_cost": 3000,
+    "maintenance_cost": 1500,
+    "total_expense": 10500
+  }
+]
