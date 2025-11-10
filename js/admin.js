@@ -102,55 +102,95 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * YENİLENDİ: Araç durumuna göre "Dispatch" veya "Mark Arrived" butonu gösterir.
+     * YENİLENDİ: Araç kapasitesini aşmayacak ve destinasyona göre gruplandıracak şekilde araçları listeler.
      */
     function displayVehicleOccupancy() {
         vehicleListDiv.innerHTML = '';
-        // Hem "Pending" hem de "In Transit" gönderileri grupla
         const activeShipments = allShipments.filter(s => s.status === 'Pending' || s.status === 'In Transit');
-        const shipmentsByVehicle = groupData(activeShipments, 'vehicle');
+        
+        // Destinasyon ve araç ismine göre grupla
+        const groupedShipments = {};
+        
+        activeShipments.forEach(shipment => {
+            const vehicleData = allVehicles.find(v => v.name === shipment.vehicle);
+            if (!vehicleData) return;
+            
+            const groupKey = `${shipment.vehicle}-${shipment.destination}-${shipment.roadType}`;
+            
+            if (!groupedShipments[groupKey]) {
+                groupedShipments[groupKey] = [];
+            }
+            
+            // Mevcut grupları kontrol et ve kapasite aşımını önle
+            let placed = false;
+            for (let i = 0; i < groupedShipments[groupKey].length; i++) {
+                const currentGroup = groupedShipments[groupKey][i];
+                const currentLoad = currentGroup.reduce((sum, s) => sum + parseInt(s.productWeight), 0);
+                const newLoad = currentLoad + parseInt(shipment.productWeight);
+                
+                // Kapasite kontrolü
+                if (newLoad <= vehicleData.capacity_kg) {
+                    currentGroup.push(shipment);
+                    placed = true;
+                    break;
+                }
+            }
+            
+            // Eğer hiçbir gruba sığmadıysa yeni bir grup oluştur
+            if (!placed) {
+                groupedShipments[groupKey].push([shipment]);
+            }
+        });
 
         const table = document.createElement('table');
         table.innerHTML = `<thead><tr><th>Vehicle</th><th>Destination</th><th>Load / Occupancy</th><th>Revenue</th><th>Est. Cost</th><th>Est. Profit</th><th>Action</th></tr></thead><tbody></tbody>`;
         const tbody = table.querySelector('tbody');
 
-        for (const vehicleName in shipmentsByVehicle) {
-            const vehicleShipments = shipmentsByVehicle[vehicleName];
+        // Grupları tabloya ekle
+        for (const groupKey in groupedShipments) {
+            const [vehicleName, destinationName, roadType] = groupKey.split('-');
             const vehicleData = allVehicles.find(v => v.name === vehicleName);
             if (!vehicleData) continue;
 
-            const totalLoad = vehicleShipments.reduce((sum, s) => sum + parseInt(s.productWeight), 0);
-            const totalRevenue = vehicleShipments.reduce((sum, s) => sum + parseFloat(s.totalPrice.replace('₺', '') || 0), 0);
-            const occupancyRate = (totalLoad / vehicleData.capacity_kg) * 100;
-            const destinationName = vehicleShipments[0].destination;
-            const roadType = vehicleShipments[0].roadType;
-            const cityData = allCities.find(c => c.destination_city === destinationName);
-            const routeData = cityData ? cityData.routes.find(r => r.type === roadType) : null;
-            const distance = routeData ? routeData.distance_km : 0;
-            const fuelCost = (vehicleData.fuel_cost_per_km / vehicleData.capacity_kg) * totalLoad * distance;
-            const totalCost = fuelCost + vehicleData.crew_driver_cost + vehicleData.maintenance_cost;
-            const totalProfit = totalRevenue - totalCost;
-            const shipmentIdsForAction = vehicleShipments.map(s => s.id).join(',');
+            const vehicleGroups = groupedShipments[groupKey];
+            
+            // Her bir alt grup için ayrı satır oluştur
+            vehicleGroups.forEach((vehicleShipments, index) => {
+                const totalLoad = vehicleShipments.reduce((sum, s) => sum + parseInt(s.productWeight), 0);
+                const totalRevenue = vehicleShipments.reduce((sum, s) => sum + parseFloat(s.totalPrice.replace('₺', '') || 0), 0);
+                const occupancyRate = (totalLoad / vehicleData.capacity_kg) * 100;
+                
+                const cityData = allCities.find(c => c.destination_city === destinationName);
+                const routeData = cityData ? cityData.routes.find(r => r.type === roadType) : null;
+                const distance = routeData ? routeData.distance_km : 0;
+                const fuelCost = (vehicleData.fuel_cost_per_km / vehicleData.capacity_kg) * totalLoad * distance;
+                const totalCost = fuelCost + vehicleData.crew_driver_cost + vehicleData.maintenance_cost;
+                const totalProfit = totalRevenue - totalCost;
+                const shipmentIdsForAction = vehicleShipments.map(s => s.id).join(',');
 
-            // Duruma göre hangi butonun gösterileceğini belirle
-            const groupStatus = vehicleShipments[0].status;
-            let actionButtonHTML = '';
-            if (groupStatus === 'Pending') {
-                actionButtonHTML = `<button class="dispatch-btn" data-shipment-ids="${shipmentIdsForAction}">Dispatch</button>`;
-            } else if (groupStatus === 'In Transit') {
-                actionButtonHTML = `<button class="arrive-btn" data-shipment-ids="${shipmentIdsForAction}">Mark Arrived</button>`;
-            }
+                // Duruma göre hangi butonun gösterileceğini belirle
+                const groupStatus = vehicleShipments[0].status;
+                let actionButtonHTML = '';
+                if (groupStatus === 'Pending') {
+                    actionButtonHTML = `<button class="dispatch-btn" data-shipment-ids="${shipmentIdsForAction}">Dispatch</button>`;
+                } else if (groupStatus === 'In Transit') {
+                    actionButtonHTML = `<button class="arrive-btn" data-shipment-ids="${shipmentIdsForAction}">Mark Arrived</button>`;
+                }
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td data-label="Vehicle">${vehicleName}</td>
-                <td data-label="Destination">${destinationName}</td>
-                <td data-label="Load / Occupancy">${totalLoad}kg / ${vehicleData.capacity_kg}kg <strong>(${occupancyRate.toFixed(1)}%)</strong></td>
-                <td data-label="Revenue">₺${totalRevenue.toFixed(2)}</td>
-                <td data-label="Est. Cost" style="color: red;">₺${totalCost.toFixed(2)}</td>
-                <td data-label="Est. Profit" style="color: ${totalProfit > 0 ? 'green' : 'red'}; font-weight: bold;">₺${totalProfit.toFixed(2)}</td>
-                <td data-label="Action">${actionButtonHTML}</td>`;
-            tbody.appendChild(row);
+                // Eğer birden fazla grup varsa araç isminin sonuna numara ekle
+                const vehicleDisplayName = vehicleGroups.length > 1 ? `${vehicleName} #${index + 1}` : vehicleName;
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td data-label="Vehicle">${vehicleDisplayName}</td>
+                    <td data-label="Destination">${destinationName}</td>
+                    <td data-label="Load / Occupancy">${totalLoad}kg / ${vehicleData.capacity_kg}kg <strong>(${occupancyRate.toFixed(1)}%)</strong></td>
+                    <td data-label="Revenue">₺${totalRevenue.toFixed(2)}</td>
+                    <td data-label="Est. Cost" style="color: red;">₺${totalCost.toFixed(2)}</td>
+                    <td data-label="Est. Profit" style="color: ${totalProfit > 0 ? 'green' : 'red'}; font-weight: bold;">₺${totalProfit.toFixed(2)}</td>
+                    <td data-label="Action">${actionButtonHTML}</td>`;
+                tbody.appendChild(row);
+            });
         }
         vehicleListDiv.appendChild(table);
     }
