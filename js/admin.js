@@ -42,10 +42,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // --- FUNCTIONS ---
 
     function loadDashboard() {
-        dashboardBody.innerHTML = '';
+        dashboardBody.innerText = '';
         allShipments.forEach(shipment => {
             const row = document.createElement('tr');
             row.innerHTML = `
+        
                 <td data-label="Shipment ID">${shipment.id}</td>
                 <td data-label="Customer">${shipment.customerName}</td>
                 <td data-label="Destination">${shipment.destination}</td>
@@ -53,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td data-label="Container Type">${shipment.containerType}</td>
                 <td data-label="Vehicle">${shipment.vehicle}</td>
                 <td data-label="Status">${shipment.status}</td>
+        
             `;
             dashboardBody.appendChild(row);
         });
@@ -77,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         for (const groupKey in shipmentsByGroup) {
             const groupShipments = shipmentsByGroup[groupKey].sort((a, b) => b.productWeight - a.productWeight);
             const [destination, containerType] = groupKey.split('-');
-            const optimizedContainers = [];
+            const optimizedContainers = []; 
             groupShipments.forEach(shipment => {
                 const shipmentWeight = parseInt(shipment.productWeight);
                 let placed = false;
